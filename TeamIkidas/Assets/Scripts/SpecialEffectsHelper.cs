@@ -5,6 +5,7 @@ public class SpecialEffectsHelper : MonoBehaviour {
 	
 	public static SpecialEffectsHelper Instance;
 	public ParticleSystem forwardMovementEffect;
+	public ParticleSystem starCollectedEffect;
 
 	private ParticleSystem currentParticleSystem;
 
@@ -26,11 +27,15 @@ public class SpecialEffectsHelper : MonoBehaviour {
 		Debug.Log (position);
 		instantiate (forwardMovementEffect, position);
 	}
+
+	public void StarCollected(Vector3 position) {
+		instantiate (starCollectedEffect, position);
+	}
 	
 	private ParticleSystem instantiate (ParticleSystem prefab, Vector3 position)
 	{
 		ParticleSystem newParticleSystem = Instantiate (prefab, position, Quaternion.identity) as ParticleSystem;
-		// Destroy (newParticleSystem.gameObject, newParticleSystem.startLifetime);
+		Destroy (newParticleSystem.gameObject, newParticleSystem.startLifetime);
 		currentParticleSystem = newParticleSystem;
 		return newParticleSystem;
 	}

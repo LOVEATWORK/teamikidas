@@ -25,6 +25,7 @@ class GridMove : MonoBehaviour {
 	public void Update() {
 		if (!isMoving) {
 			input = new Vector2 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+
 			if (!allowDiagonals) {
 				if (Mathf.Abs (input.x) > Mathf.Abs (input.y)) {
 					input.y = 0;
@@ -58,6 +59,10 @@ class GridMove : MonoBehaviour {
 	}
 	
 	public IEnumerator move(Transform transform) {
+
+		// We always pause the game until the player makes the first move
+		GameState.Instance.gameIsPaused = false;
+
 		isMoving = true;
 		startPosition = transform.position;
 		t = 0;

@@ -10,6 +10,8 @@ public class StarCollectorScript : MonoBehaviour {
 		Debug.Log("Experience points: " + GameState.Instance.experience);
 		// Debug.Log ("Multiplier: " + StarCollectorGameManager.Instance.currentlyChasing);
 
+		SpecialEffectsHelper.Instance.StarCollected(other.gameObject.transform.position);
+
 		Destroy (other.gameObject);
 		// Decrease the number of chasing instances
 		StarCollectorGameManager.Instance.currentlyChasing -= 1;

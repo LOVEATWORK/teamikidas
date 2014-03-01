@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 674774487}
   - 114: {fileID: 674774486}
+  - 114: {fileID: 674774488}
   m_Layer: 0
   m_Name: _GUI
   m_TagString: Untagged
@@ -112,6 +113,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &674774488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674774485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8676ae21594e04b6abe7fea8dd6721db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardMovementEffect: {fileID: 19800000, guid: 1f9346f41256f42e98728698ef2652a8,
+    type: 2}
+  starCollectedEffect: {fileID: 19800000, guid: c617faea61e0148fe86734bec1fe3708,
+    type: 2}
 --- !u!1 &1231480634
 GameObject:
   m_ObjectHideFlags: 0

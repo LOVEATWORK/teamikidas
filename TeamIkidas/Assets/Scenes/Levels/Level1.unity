@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44dc8fb5c33e48739e56b1986e78829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoadForward: 
+  SceneToLoadForward: StarCollector
   SceneToLoadBackward: 
 --- !u!61 &1422148255
 BoxCollider2D:
@@ -444,7 +444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: cdf24072182ed4b88a8ce705bc408cf0, type: 2}
       propertyPath: SceneToLoadForward
-      value: 
+      value: StarCollector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdf24072182ed4b88a8ce705bc408cf0, type: 2}

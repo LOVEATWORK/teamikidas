@@ -15,35 +15,38 @@ public class StarBehaviour : MonoBehaviour {
 	private bool counted = false;
 
 	void Start() {
-
 	}
 
 	// Update is called once per frame
 	void Update () {
 	
-		Raycasting ();
-
-		if (spotted) {
-						
-						if (!counted) {
-								StarCollectorGameManager.Instance.currentlyChasing += 1;
-								counted = true;
-						}
+		if (!GameState.Instance.gameIsPaused) {
+			
+			Raycasting ();
+			
+			if (spotted) {
 				
-						Debug.DrawLine (transform.position, spotted.gameObject.transform.position, Color.green);
-						StartCoroutine (RotateTowardsObject (spotted.gameObject.transform, rotationSpeed));
-
-						if (pointingAtPlayer) {
-								float step = speed * Time.deltaTime;
-								transform.position = Vector3.MoveTowards (transform.position, spotted.gameObject.transform.position, step); 
-
-						}
-				} else {
+				if (!counted) {
+					StarCollectorGameManager.Instance.currentlyChasing += 1;
+					counted = true;
+				}
 				
-			if (counted) {
-				StarCollectorGameManager.Instance.currentlyChasing -= 1;
-				counted = false;
+				Debug.DrawLine (transform.position, spotted.gameObject.transform.position, Color.green);
+				StartCoroutine (RotateTowardsObject (spotted.gameObject.transform, rotationSpeed));
+				
+				if (pointingAtPlayer) {
+					float step = speed * Time.deltaTime;
+					transform.position = Vector3.MoveTowards (transform.position, spotted.gameObject.transform.position, step); 
+					
+				}
+			} else {
+				
+				if (counted) {
+					StarCollectorGameManager.Instance.currentlyChasing -= 1;
+					counted = false;
+				}
 			}
+
 		} 
 	}
 

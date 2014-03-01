@@ -11,6 +11,7 @@ public class GameState : MonoBehaviour {
 	private int _hp;
 	private string _playerName;
 	private string _previousScene;
+	private bool _gameIsPaused = true;
 
 	public static GameState Instance {
 		get {
@@ -35,6 +36,11 @@ public class GameState : MonoBehaviour {
 		_playerName = "My player name";
 
 		Application.LoadLevel ("Overworld");
+
+	}
+
+	public void OnGUI() {
+
 
 	}
 
@@ -87,6 +93,15 @@ public class GameState : MonoBehaviour {
 		}
 		set {
 			_hp = value;
+		}
+	}
+
+	public bool gameIsPaused {
+		get {
+			return _gameIsPaused;
+		}
+		set {
+			_gameIsPaused = value;
 		}
 	}
 }
