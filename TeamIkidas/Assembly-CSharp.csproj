@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ActionScript.cs" />
+     <Compile Include="Assets\GameStart.cs" />
+     <Compile Include="Assets\GameState.cs" />
      <Compile Include="Assets\Scripts\GridMove.cs" />
      <Compile Include="Assets\Scripts\ParallaxScrolling.cs" />
      <Compile Include="Assets\Scripts\SmoothCameraFollow2D.cs" />
+     <Compile Include="Assets\Scripts\SpecialEffectsHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
