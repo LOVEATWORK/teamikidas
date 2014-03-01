@@ -44,22 +44,17 @@ class GridMove : MonoBehaviour {
 	}
 	
 	void RotateToMouseClick(float x, float y) {
-		
 		float targetAngle = Mathf.Atan2 (y, x) * Mathf.Rad2Deg;
 		// transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (0, 0, targetAngle), turnSpeed * Time.deltaTime);
 		transform.rotation = Quaternion.Euler (0, 0, targetAngle);
-		
-		
 	}
 	
 	Vector3 getMoveDirection(Vector3 target) {
-		
 		Vector3 moveToward = Camera.main.ScreenToWorldPoint(target);
 		Vector3 moveDirection = moveToward - transform.position;
 		moveDirection.z = 0;
 		
 		return moveDirection;
-		
 	}
 	
 	public IEnumerator move(Transform transform) {

@@ -7,11 +7,12 @@ public class ActionScript : MonoBehaviour {
 	public string SceneToLoadBackward;
 	private bool isCollision = false;
 	private float verticalDirection;
-
 	// Use this for initialization
 	void Start () {
 		Debug.Log (SceneToLoadForward);
 		Debug.Log (SceneToLoadBackward);
+	
+	
 	}
 	
 	// Update is called once per frame

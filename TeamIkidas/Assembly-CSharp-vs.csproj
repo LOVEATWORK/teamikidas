@@ -49,9 +49,14 @@
      <Compile Include="Assets\Scripts\GameStart.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\GridMove.cs" />
+     <Compile Include="Assets\Scripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\ParallaxScrolling.cs" />
      <Compile Include="Assets\Scripts\SmoothCameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\SpecialEffectsHelper.cs" />
+     <Compile Include="Assets\Scripts\StarCollector\LookAtMouseScript.cs" />
+     <Compile Include="Assets\Scripts\StarCollector\StarBehaviour.cs" />
+     <Compile Include="Assets\Scripts\StarCollector\StarCollectorScript.cs" />
+     <Compile Include="Assets\StarCollectorGameManager.cs" />
      <Compile Include="Assets\Textures\ActionScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

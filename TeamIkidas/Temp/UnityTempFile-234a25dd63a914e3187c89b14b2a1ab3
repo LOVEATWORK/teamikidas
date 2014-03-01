@@ -36,12 +36,14 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
-'Assets/ActionScript.cs'
-'Assets/GameStart.cs'
-'Assets/GameState.cs'
+'Assets/Scripts/GameStart.cs'
+'Assets/Scripts/GameState.cs'
 'Assets/Scripts/GridMove.cs'
 'Assets/Scripts/ParallaxScrolling.cs'
 'Assets/Scripts/SmoothCameraFollow2D.cs'
 'Assets/Scripts/SpecialEffectsHelper.cs'
+'Assets/Scripts/StarCollector/LookAtMouseScript.cs'
+'Assets/Scripts/StarCollector/StarBehaviour.cs'
+'Assets/Textures/ActionScript.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

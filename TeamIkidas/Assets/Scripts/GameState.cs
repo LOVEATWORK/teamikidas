@@ -80,4 +80,13 @@ public class GameState : MonoBehaviour {
 		// Load current scene
 		Application.LoadLevel (_currentScene);
 	}
+
+	public int HP {
+		get {
+			return _hp;
+		}
+		set {
+			_hp = value;
+		}
+	}
 }
