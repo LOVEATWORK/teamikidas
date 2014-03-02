@@ -8,6 +8,7 @@ public class SpecialEffectsHelper : MonoBehaviour {
 	public ParticleSystem starCollectedEffect;
 	public LineRenderer stardustStream;
 	public ParticleSystem stardustParticleSystem;
+	public ParticleSystem splosion;
 
 	private ParticleSystem currentParticleSystem;
 
@@ -41,7 +42,12 @@ public class SpecialEffectsHelper : MonoBehaviour {
 		stream.SetPosition(1, to);
 		Destroy(stream.gameObject, 0.1f);
 		var dustSystem = Instantiate(stardustParticleSystem, from, Quaternion.identity) as ParticleSystem;
-		Destroy(dustSystem.gameObject, 1.0f);
+		Destroy(dustSystem.gameObject, dustSystem.startLifetime);
+	}
+
+	public void Splosion(Vector3 position)
+	{
+		instantiate(splosion, position);
 	}
 	
 	private ParticleSystem instantiate (ParticleSystem prefab, Vector3 position)

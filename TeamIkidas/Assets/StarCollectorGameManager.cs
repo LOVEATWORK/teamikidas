@@ -67,6 +67,21 @@ public class StarCollectorGameManager : MonoBehaviour {
 		{
 			timesUpText.text = "Time's up!!!";
 			_fail = true;
+			var playerObject = GameObject.FindWithTag("Player");
+			if (playerObject != null)
+			{
+				var playerHealth = playerObject.GetComponent<HealthScript>();
+				if (playerHealth != null)
+				{
+					playerHealth.Kill ();
+					Sunrise();
+				}
+			}
+		}
+
+		if (Input.GetKey(KeyCode.R))
+		{
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
 
@@ -99,11 +114,16 @@ public class StarCollectorGameManager : MonoBehaviour {
 				//Success!!! all stars collected
 				_success = true;
 				successText.text = "You have collected all the stars!";
-				var sun = Instantiate(sunshine, new Vector3(0, -23, 0), Quaternion.identity) as SpriteRenderer;
-				var endPosition = new Vector3(0, 0, 0);
-				StartCoroutine(MoveSun(sun.gameObject.transform, sun.gameObject.transform.position, endPosition, 5));
+				Sunrise();
 			}
 		}
+	}
+
+	void Sunrise()
+	{
+		var sun = Instantiate(sunshine, new Vector3(0, -23, 0), Quaternion.identity) as SpriteRenderer;
+		var endPosition = new Vector3(0, 0, 0);
+		StartCoroutine(MoveSun(sun.gameObject.transform, sun.gameObject.transform.position, endPosition, 5));
 	}
 
 	IEnumerator MoveSun(Transform thisTransform, Vector3 startPosition, Vector3 endPosition, float time)
