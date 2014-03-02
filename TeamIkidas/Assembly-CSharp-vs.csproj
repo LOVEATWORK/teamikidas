@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\ParallaxScrolling.cs" />
      <Compile Include="Assets\Scripts\SmoothCameraFollow2D.cs" />
      <Compile Include="Assets\Scripts\SpecialEffectsHelper.cs" />
+     <Compile Include="Assets\Scripts\StarCollector\IkidasSimpleController.cs" />
      <Compile Include="Assets\Scripts\StarCollector\LookAtMouseScript.cs" />
      <Compile Include="Assets\Scripts\StarCollector\StarBehaviour.cs" />
      <Compile Include="Assets\Scripts\StarCollector\StarCollectorScript.cs" />
