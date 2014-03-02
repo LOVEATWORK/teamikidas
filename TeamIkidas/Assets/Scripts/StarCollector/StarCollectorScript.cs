@@ -6,6 +6,10 @@ public class StarCollectorScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 
 		StarBehaviour star = other.GetComponent<StarBehaviour>();
+		if (star == null)
+		{
+			return;
+		}
 		GameState.Instance.AddExperience(star.experiencePoints * StarCollectorGameManager.Instance.currentlyChasing);
 		Debug.Log("Experience points: " + GameState.Instance.experience);
 		// Debug.Log ("Multiplier: " + StarCollectorGameManager.Instance.currentlyChasing);

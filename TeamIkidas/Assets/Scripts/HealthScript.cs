@@ -8,7 +8,10 @@ public class HealthScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
-		
+
+		if (collider.gameObject.tag == "Player") {
+			return;
+		}
 		// Is this a shot?
 		StarBehaviour star = collider.gameObject.GetComponent<StarBehaviour> ();
 		
@@ -24,7 +27,7 @@ public class HealthScript : MonoBehaviour {
 		}
 	}
 	
-	void Kill() {
+	public void Kill() {
 		
 		//var deathTransform = Instantiate(deathPrefab) as Transform;
 		//deathTransform.position = transform.position;
@@ -33,6 +36,12 @@ public class HealthScript : MonoBehaviour {
 
 		if (StarCollectorGameManager.Instance.TimeLeft () > 0) {
 			Application.LoadLevel(Application.loadedLevel);
+		}
+		else {
+			//Debug.Log("Player died because time was up");
+			var playerObject = GameObject.FindWithTag("Player");
+			SpecialEffectsHelper.Instance.Splosion(playerObject.gameObject.transform.position);
+			Destroy(playerObject.gameObject);
 		}
 
 		Destroy(gameObject);

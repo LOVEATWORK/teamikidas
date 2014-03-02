@@ -530,6 +530,7 @@ MonoBehaviour:
   stardustStream: {fileID: 12000000, guid: 4f4acfd38caba07438a2b5459f867795, type: 2}
   stardustParticleSystem: {fileID: 19800000, guid: a9baad7a0da0f4e4988e38b2c386ace4,
     type: 2}
+  splosion: {fileID: 19800000, guid: 1c7195bd90b6ff442b383c73d321343f, type: 2}
 --- !u!1 &1240311760
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +549,7 @@ GameObject:
   - 114: {fileID: 1240311769}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
