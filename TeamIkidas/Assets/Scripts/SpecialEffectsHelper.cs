@@ -7,6 +7,7 @@ public class SpecialEffectsHelper : MonoBehaviour {
 	public ParticleSystem forwardMovementEffect;
 	public ParticleSystem starCollectedEffect;
 	public LineRenderer stardustStream;
+	public ParticleSystem stardustParticleSystem;
 
 	private ParticleSystem currentParticleSystem;
 
@@ -38,7 +39,9 @@ public class SpecialEffectsHelper : MonoBehaviour {
 		var stream = Instantiate(stardustStream, from, Quaternion.identity) as LineRenderer;
 		stream.SetPosition(0, from);
 		stream.SetPosition(1, to);
-		Destroy(stream, 0.1f);
+		Destroy(stream.gameObject, 0.1f);
+		var dustSystem = Instantiate(stardustParticleSystem, from, Quaternion.identity) as ParticleSystem;
+		Destroy(dustSystem.gameObject, 1.0f);
 	}
 	
 	private ParticleSystem instantiate (ParticleSystem prefab, Vector3 position)
