@@ -14,12 +14,15 @@ public class StarCollectorGameManager : MonoBehaviour {
 	public GUIText xpCounter;
 	public GUIText timesUpText;
 	public GUIText timerText;
+	public GUIText successText;
 
 	private static StarCollectorGameManager _instance;
 	private StarBehaviour _star;
 	private int _currentlyChasing;
 	private int _collectedStars;
 	private float _timeLeft;
+	private bool _success;
+	private bool _fail;
 
 	// Persistent variables
 
@@ -41,6 +44,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 		GameState.Instance.gameIsPaused = true;
 		_collectedStars = 0;
 		timesUpText.text = "";
+		successText.text = "";
 		UpdateStarsCollectedCounter();
 
 		for (int i = 0; i < maxStars; i++) {
@@ -58,9 +62,10 @@ public class StarCollectorGameManager : MonoBehaviour {
 	void Update() {
 		UpdateXpCounter();
 		UpdateTimer();
-		if (!GameState.Instance.gameIsPaused && TimeLeft() < 0)
+		if (!GameState.Instance.gameIsPaused && TimeLeft() < 0 && !_success)
 		{
 			timesUpText.text = "Time's up!!!";
+			_fail = true;
 		}
 	}
 
@@ -88,6 +93,12 @@ public class StarCollectorGameManager : MonoBehaviour {
 		if (starsCollectedCounter != null) 
 		{
 			starsCollectedCounter.text = GetCollectedStarsCount();
+			if (_collectedStars == maxStars && !_fail)
+			{
+				//Success!!! all stars collected
+				_success = true;
+				successText.text = "You have collected all the stars!";
+			}
 		}
 	}
 
@@ -101,13 +112,16 @@ public class StarCollectorGameManager : MonoBehaviour {
 
 	private void UpdateTimer()
 	{
-		if (!GameState.Instance.gameIsPaused)
+		if (!_fail && !_success)
 		{
-			timerText.text = "Time: " + TimeLeft().ToString("N1") + "s";
-		}
-		else
-		{
-			timerText.text = "";
+			if (!GameState.Instance.gameIsPaused)
+			{
+				timerText.text = "Time: " + TimeLeft().ToString("N1") + "s";
+			}
+			else
+			{
+				timerText.text = "";
+			}
 		}
 	}
 }
