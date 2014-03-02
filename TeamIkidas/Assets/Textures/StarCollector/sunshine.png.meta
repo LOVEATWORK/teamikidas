@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e443de5d94cb31741bdbb25fe665e623
+=======
+guid: 9f380439958d846bb8480bb651295df4
+>>>>>>> Lars-dev
 TextureImporter:
   serializedVersion: 2
   mipmaps:
