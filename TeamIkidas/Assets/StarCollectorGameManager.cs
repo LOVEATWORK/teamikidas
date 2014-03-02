@@ -19,6 +19,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 	private StarBehaviour _star;
 	private int _currentlyChasing;
 	private int _collectedStars;
+	private float _timeLeft;
 
 	// Persistent variables
 
@@ -43,7 +44,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 		UpdateStarsCollectedCounter();
 
 		for (int i = 0; i < maxStars; i++) {
-			Vector3 randomPos = new Vector3(Random.Range(2, maxWidth), Random.Range(2, maxHeight), 0);
+			Vector3 randomPos = new Vector3(Random.Range(-maxWidth, maxWidth), Random.Range(-maxHeight, maxHeight), 0);
 			Instantiate(starTransform, randomPos, Quaternion.identity);
 		}
 
@@ -57,10 +58,14 @@ public class StarCollectorGameManager : MonoBehaviour {
 	void Update() {
 		UpdateXpCounter();
 		UpdateTimer();
-		if (!GameState.Instance.gameIsPaused && Time.time - GameState.Instance.StartTime > gameDuration)
+		if (!GameState.Instance.gameIsPaused && TimeLeft() < 0)
 		{
 			timesUpText.text = "Time's up!!!";
 		}
+	}
+
+	public float TimeLeft(){
+		return gameDuration - (Time.time - GameState.Instance.StartTime);
 	}
 
 	public int currentlyChasing {
@@ -98,7 +103,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 	{
 		if (!GameState.Instance.gameIsPaused)
 		{
-			timerText.text = "Time: " + (gameDuration - (Time.time - GameState.Instance.StartTime)).ToString("N1") + "s";
+			timerText.text = "Time: " + TimeLeft().ToString("N1") + "s";
 		}
 		else
 		{

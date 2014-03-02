@@ -39,7 +39,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b6e60fd278e7242719dfe22ff5e10879, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -52,14 +52,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .100000001
+    startWidth: .00999999978
     endWidth: .200000003
     m_StartColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 844819967
     m_EndColor:
       serializedVersion: 2
-      rgba: 4294965474
+      rgba: 6178560
   m_UseWorldSpace: 1
 --- !u!1001 &100100000
 Prefab:

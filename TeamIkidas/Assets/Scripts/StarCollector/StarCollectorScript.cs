@@ -12,6 +12,8 @@ public class StarCollectorScript : MonoBehaviour {
 
 		SpecialEffectsHelper.Instance.StarCollected(other.gameObject.transform.position);
 
+		gameObject.audio.Play ();
+
 		Destroy (other.gameObject);
 		// Decrease the number of chasing instances
 		StarCollectorGameManager.Instance.currentlyChasing -= 1;

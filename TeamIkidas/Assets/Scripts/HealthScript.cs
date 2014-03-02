@@ -29,6 +29,12 @@ public class HealthScript : MonoBehaviour {
 		//var deathTransform = Instantiate(deathPrefab) as Transform;
 		//deathTransform.position = transform.position;
 		//deathTransform.rotation = transform.rotation;
+
+
+		if (StarCollectorGameManager.Instance.TimeLeft () > 0) {
+			Application.LoadLevel(Application.loadedLevel);
+		}
+
 		Destroy(gameObject);
 	}
 }
