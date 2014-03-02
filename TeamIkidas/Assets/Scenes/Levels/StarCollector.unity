@@ -348,6 +348,8 @@ MonoBehaviour:
   starCollectedEffect: {fileID: 19800000, guid: c617faea61e0148fe86734bec1fe3708,
     type: 2}
   stardustStream: {fileID: 12000000, guid: 4f4acfd38caba07438a2b5459f867795, type: 2}
+  stardustParticleSystem: {fileID: 19800000, guid: a9baad7a0da0f4e4988e38b2c386ace4,
+    type: 2}
 --- !u!1 &1240311760
 GameObject:
   m_ObjectHideFlags: 0
