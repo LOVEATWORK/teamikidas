@@ -15,5 +15,6 @@ public class StarCollectorScript : MonoBehaviour {
 		Destroy (other.gameObject);
 		// Decrease the number of chasing instances
 		StarCollectorGameManager.Instance.currentlyChasing -= 1;
+		StarCollectorGameManager.Instance.IncrementStarsCollected();
 	}
 }
