@@ -15,6 +15,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 	public GUIText timesUpText;
 	public GUIText timerText;
 	public GUIText successText;
+	public SpriteRenderer sunshine;
 
 	private static StarCollectorGameManager _instance;
 	private StarBehaviour _star;
@@ -98,7 +99,22 @@ public class StarCollectorGameManager : MonoBehaviour {
 				//Success!!! all stars collected
 				_success = true;
 				successText.text = "You have collected all the stars!";
+				var sun = Instantiate(sunshine, new Vector3(0, -23, 0), Quaternion.identity) as SpriteRenderer;
+				var endPosition = new Vector3(0, 0, 0);
+				StartCoroutine(MoveSun(sun.gameObject.transform, sun.gameObject.transform.position, endPosition, 5));
 			}
+		}
+	}
+
+	IEnumerator MoveSun(Transform thisTransform, Vector3 startPosition, Vector3 endPosition, float time)
+	{
+		float i = 0.0f;
+		float rate = 1.0f / time;
+		while (i < 1.0f)
+		{
+			i += Time.deltaTime * rate;
+			thisTransform.position = Vector3.Lerp (startPosition, endPosition, i);
+			yield return null;
 		}
 	}
 
