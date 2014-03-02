@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\StarCollector\LookAtMouseScript.cs" />
      <Compile Include="Assets\Scripts\StarCollector\StarBehaviour.cs" />
      <Compile Include="Assets\Scripts\StarCollector\StarCollectorScript.cs" />
+     <Compile Include="Assets\Scripts\StarStreamParticleSystem.cs" />
      <Compile Include="Assets\StarCollectorGameManager.cs" />
      <Compile Include="Assets\Textures\ActionScript.cs" />
   </ItemGroup>

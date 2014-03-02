@@ -8,9 +8,12 @@ public class StarCollectorGameManager : MonoBehaviour {
 	public int maxStars;
 	public int maxWidth;
 	public int maxHeight;
+	public float gameDuration;
 
 	public GUIText starsCollectedCounter;
 	public GUIText xpCounter;
+	public GUIText timesUpText;
+	public GUIText timerText;
 
 	private static StarCollectorGameManager _instance;
 	private StarBehaviour _star;
@@ -36,6 +39,7 @@ public class StarCollectorGameManager : MonoBehaviour {
 		// Make sure to pause the game on start
 		GameState.Instance.gameIsPaused = true;
 		_collectedStars = 0;
+		timesUpText.text = "";
 		UpdateStarsCollectedCounter();
 
 		for (int i = 0; i < maxStars; i++) {
@@ -45,10 +49,6 @@ public class StarCollectorGameManager : MonoBehaviour {
 
 	}
 
-	void OnGUI() {
-		//GUI.Label (new Rect (10, 10, 200, 30), "XP: " + GameState.Instance.experience); 
-	}
-
 	private string GetCollectedStarsCount()
 	{
 		return _collectedStars + " of " + maxStars + " stars collected";
@@ -56,6 +56,11 @@ public class StarCollectorGameManager : MonoBehaviour {
 
 	void Update() {
 		UpdateXpCounter();
+		UpdateTimer();
+		if (!GameState.Instance.gameIsPaused && Time.time - GameState.Instance.StartTime > gameDuration)
+		{
+			timesUpText.text = "Time's up!!!";
+		}
 	}
 
 	public int currentlyChasing {
@@ -86,6 +91,18 @@ public class StarCollectorGameManager : MonoBehaviour {
 		if (xpCounter != null)
 		{
 			xpCounter.text = "XP: " + GameState.Instance.experience;
+		}
+	}
+
+	private void UpdateTimer()
+	{
+		if (!GameState.Instance.gameIsPaused)
+		{
+			timerText.text = "Time: " + (gameDuration - (Time.time - GameState.Instance.StartTime)).ToString("N1") + "s";
+		}
+		else
+		{
+			timerText.text = "";
 		}
 	}
 }

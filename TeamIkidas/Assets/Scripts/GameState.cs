@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour {
 	private string _playerName;
 	private string _previousScene;
 	private bool _gameIsPaused = true;
+	private float _startTime;
+	private bool _isStarted;
 
 	public static GameState Instance {
 		get {
@@ -102,6 +104,18 @@ public class GameState : MonoBehaviour {
 		}
 		set {
 			_gameIsPaused = value;
+			if (!_isStarted && !value)
+			{
+				_isStarted = true;
+				_startTime = Time.time;
+			}
+		}
+	}
+
+	public float StartTime
+	{ 
+		get { 
+			return _startTime; 
 		}
 	}
 }

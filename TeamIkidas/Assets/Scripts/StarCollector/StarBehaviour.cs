@@ -32,6 +32,7 @@ public class StarBehaviour : MonoBehaviour {
 				}
 				
 				Debug.DrawLine (transform.position, spotted.gameObject.transform.position, Color.green);
+				SpecialEffectsHelper.Instance.StardustStream(transform.position, spotted.gameObject.transform.position);
 				StartCoroutine (RotateTowardsObject (spotted.gameObject.transform, rotationSpeed));
 				
 				if (pointingAtPlayer) {
